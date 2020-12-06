@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
+import './header.css';
 
-const Header = () => {
-    return (
-        <div className='header-bg'>
-            <span className='head-logo'>Image Viewer</span>
-        </div>
-    )
-}
+class Header extends Component {
+
+    render(){
+        return (
+            <div>
+            <span className='head-logo'>Image Viewer</span>          
+            </div>
+        )
+    }    
+    }
 
 export { Header };

@@ -1,0 +1,14 @@
+.header-bg{
+    background: #263238;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+.header-bg {
+    background-color: #263238;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
