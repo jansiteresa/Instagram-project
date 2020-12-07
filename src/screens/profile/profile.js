@@ -47,12 +47,13 @@ const useStyles = makeStyles((theme) => ({
             super(props)
     
             this.state = {
-                profileImageData: mockData2,
-            };
+                profileImageData: [],
+                description: 'Upgrad Education'
+            }
         }
     
         componentDidMount() {
-    
+
             if (accessToken) {
                 axios.get(`${BASE_URL}/me/media`, {
                     params: {
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
                     })
                     const { allImageData } = this.state;
                     if (allImageData && Array.isArray(allImageData) && allImageData.length > 0) {
-                        for (let i = 0; i < 3; i++) {
+                        for (let i = 0; i < allImageData.length; i++) {
                             axios.get(`${BASE_URL}/${allImageData[i].id}`, {
                                 params: {
                                     fields: 'id,media_type,media_url,username,timestamp,caption',
@@ -80,11 +81,13 @@ const useStyles = makeStyles((theme) => ({
                                 })
                             }).catch(() => {
                                 // TODO - put alert here
+                                alert('API call failed')
                             })
                         }
                     }
                 }).catch(() => {
                     // TODO - put alert here
+                    alert('API call failed')
                 });
             }
         }

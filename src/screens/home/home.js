@@ -1,54 +1,56 @@
 import React, { Component, Fragment } from 'react';
-
-// Dependencies
 import axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-// Components
 import { Header } from '../header/header';
 import { NewsFeedCard } from './news-feed-card';
-
-// CSS
 import './home.css';
 
-// Mock Data
-import { mockData } from './mock-data';
-import { mockData2 } from './mock-data-2';
 
 const accessToken = sessionStorage.getItem('access-token');
+const BASE_URL = 'https://graph.instagram.com';
 class Home extends Component {
 
     constructor (props) {
         super(props)
 
         this.state = {
-            newsFeedData: mockData2,
+            newsFeedData: [],
         };
     }
 
-    componentDidMount () {
+    componentDidMount() {
         if (accessToken) {
-            const apiUrl = `https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`;
-
-            axios.get(apiUrl).then((data) => {
-                const allImageData = mockData.data;
+            axios.get(`${BASE_URL}/me/media`, {
+                params: {
+                    fields: 'id,username',
+                    access_token: accessToken
+                }
+            }).then((data) => {
+                this.setState({
+                    allImageData: data.data.data
+                })
+                const { allImageData } = this.state;
                 if (allImageData && Array.isArray(allImageData) && allImageData.length > 0) {
-                    for (let i = 0; i < 2; i++) {
-                        axios.get(`https://graph.instagram.com/${allImageData[i].id}?fields=id,media_type,media_url,username,timestamp,caption&access_token=${accessToken}`)
-                        .then((imageAttributes) => {
+                    for (let i = 0; i < allImageData.length; i++) {
+                        axios.get(`${BASE_URL}/${allImageData[i].id}`, {
+                            params: {
+                                fields: 'id,media_type,media_url,username,timestamp,caption',
+                                access_token: accessToken
+                            }
+                        }).then((imageAttributes) => {
                             imageAttributes.data && this.setState((state) => {
                                 const newsFeedData = state.newsFeedData.concat(imageAttributes.data)
-                                    return {
-                                        newsFeedData
-                                    }
-                                })
+                                return {
+                                    newsFeedData
+                                }
+                            })
                         }).catch(() => {
-                            // TODO - put alert here
+                            alert('Network API call failed');
                         })
                     }
                 }
             }).catch(() => {
-                 // TODO - put alert here
+                alert('Network API call failed');
             });
         }
     }
@@ -57,6 +59,7 @@ class Home extends Component {
 
         const { newsFeedData } = this.state;
 
+        
         const NewsFeedRenderer = () => {
             return newsFeedData.map(
                 (newsFeedImageData, index) => <NewsFeedCard
