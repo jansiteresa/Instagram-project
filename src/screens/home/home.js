@@ -30,7 +30,7 @@ class Home extends Component {
         if (!accessToken) {
             const apiUrl = `https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`;
 
-            axios.get('https://akshatsoni.com/').then((data) => {
+            axios.get('').then((data) => {
                 const allImageData = mockData.data;
                 if (allImageData && Array.isArray(allImageData) && allImageData.length > 0) {
                     for (let i = 0; i < 2; i++) {

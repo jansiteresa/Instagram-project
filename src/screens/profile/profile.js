@@ -116,8 +116,8 @@ const useStyles = makeStyles((theme) => ({
                                 <img src={edit} className='p-5 rounded-circle' alt='avatar' />
                             </div>
                             <div className='col-lg-9'>
-                                <div className='m-5 p-5'>
-                                    <h1>{(allImageData && allImageData.length > 0 && allImageData[0].username) || 'Upgrad_sde'}</h1>
+                                <div className='m-5 p-4'>
+                                    <h3>{(allImageData && allImageData.length > 0 && allImageData[0].username) || 'upgrad_sde'}</h3>
                                     <div className='row'>
                                         <div className='col-lg-4'>
                                             <p>Posts: 6</p>
@@ -130,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
                                         </div>
                                     </div>
                                     <div className='mt-4'>
-                                        <h3 className='d-inline pt-4'>Upgrad Education</h3>
+                                        <h4 className='d-inline pt-4'>Upgrad Education</h4>
                                         <span className='ml-3 edit-icon-container'><EditRoundedIcon /></span>
                                     </div>
                                 </div>
