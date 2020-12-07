@@ -9,7 +9,7 @@ import { CardComponent } from './card-component';
 // CSS
 import './login.css';
 
-const accessToken = `xyz`
+const accessToken = `IGQVJYWTljc0lpMU56R3ZAQX0NYZAjc0WnAzd3NXZAGxWU3M5SGxaV0VBZAzhlNExnY1BWNnJ0Vzl1U0sxZAHJHSEgwdnk1RDNvVHlNanVITmEwcjVkLWpuNlVDWFVFMnpNTGJFYmxONmRzb1JCY1VHbUh3SmJoRjhfN0wxU2dF`
 class Login extends Component {
 
     constructor(props) {

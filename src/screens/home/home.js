@@ -27,10 +27,10 @@ class Home extends Component {
     }
 
     componentDidMount () {
-        if (!accessToken) {
+        if (accessToken) {
             const apiUrl = `https://graph.instagram.com/me/media?fields=id,caption&access_token=${accessToken}`;
 
-            axios.get('').then((data) => {
+            axios.get(apiUrl).then((data) => {
                 const allImageData = mockData.data;
                 if (allImageData && Array.isArray(allImageData) && allImageData.length > 0) {
                     for (let i = 0; i < 2; i++) {

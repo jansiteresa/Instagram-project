@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     
         componentDidMount() {
     
-            if (!accessToken) {
+            if (accessToken) {
                 axios.get(`${BASE_URL}/me/media`, {
                     params: {
                         fields: 'id,username',
