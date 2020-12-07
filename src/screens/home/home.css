@@ -24,8 +24,37 @@
     width: 40%!important;
 }
 
+.vh-100 {
+    height: 100vh;
+}
+
+.cation-head {
+    font-size: 20px;
+}
+
+.margin-tl {
+    margin-top: 18px!important;
+    margin-left: 12px!important;
+}
+
 .newsfeed-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+}
+
+.font-38p {
+    font-size: 38px!important;
+}
+
+.isShow {
+    display: none;
+}
+
+.isHide {
+    display: inline;
+}
+
+.fs-18p {
+    font-size: 18px;
 }
