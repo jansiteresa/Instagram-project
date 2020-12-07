@@ -7,3 +7,15 @@
     flex-direction: column;
     padding: 30px;
 }
+
+.dispNone {
+    display: none;
+}
+
+.dispBlock {
+    display: block;
+}
+
+.red {
+    color: red;
+} 
