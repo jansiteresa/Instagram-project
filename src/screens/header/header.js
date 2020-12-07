@@ -2,12 +2,14 @@ import React, { useState, Fragment } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import './header.css';
 import edit from "../../assets/upgrad.svg";
+import SearchIcon from '@material-ui/icons/Search';
+import Divider from '@material-ui/core/Divider';
 
 const Header = (props) => {
     const isAuth = sessionStorage.getItem("access-token");
     const [toggler, setToggler] = useState(false);
 
-    const handleClick = () => {
+    const onClickProfile = () => {
         setToggler(!toggler);
     }
 
@@ -36,21 +38,20 @@ const Header = (props) => {
                             {
                                 currentPage !== '/profile' && (
                                     <div className="has-search w-75">
-                                        <span className="fa fa-search text-dark form-control-feedback"></span>
+                                        <span className=" text-dark form-control-feedback"><SearchIcon /></span>
                                         <input type="text" className="form-control" placeholder="Search..." />
                                     </div>
                                 )
                             }
-                            <Avatar onClick={handleClick} className='cursor-pointer mx-4 border border-light' alt="Remy Sharp" src={edit} />
+                            <Avatar onClick={onClickProfile} className='cursor-pointer mx-4 border border-light' alt="Remy Sharp" src={edit} />
                             {toggler && (
-                                <ul className='popup-container'>
-                                    { currentPage !== '/profile' && <li
-                                        className='border-btm'
+                                <span className='popup-container'>
+                                    { currentPage !== '/profile' && <p
                                         onClick={handleRedirect}>
                                         My Account
-                                    </li>}
-                                    <li onClick={handleLogout}>Logout</li>
-                                </ul>
+                                    </p>}
+                                    <p onClick={handleLogout}>Logout</p>
+                                </span>
                             )}
                         </div>
                     </Fragment>
