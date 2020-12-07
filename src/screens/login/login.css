@@ -19,3 +19,10 @@
 .red {
     color: red;
 } 
+
+.form-container {
+    display: flex; /* horizontally in center of the page*/
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
