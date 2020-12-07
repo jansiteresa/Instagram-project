@@ -47,7 +47,7 @@ const NewsFeedCard = ({
                 <div className='my-3 cation-head'>
                     {caption || 'Team of great people at upgrad'}
                 </div>
-                <h5 className='text-primary'>#instagram #happy-coding</h5>
+                <h5 className='text-primary'>#ReactProject #Newthigs</h5>
                 <LikeComponent />
                 <div className='mt-5'>
                     <CommentComponent
